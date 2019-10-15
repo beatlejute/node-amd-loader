@@ -35,9 +35,9 @@ global.define = function (id, deps, factory) {
     var mod = currentModule || module.parent || require.main;
 
 
-    if (typeof id === "string" && id !== mod.id) {
+    /*if (typeof id === "string" && id !== mod.id) {
         throw new Error("Can not assign module to a different id than the current file");
-    }
+    }*/
 
     var req = function(module, relativeId, callback) {
         if (Array.isArray(relativeId)) {
