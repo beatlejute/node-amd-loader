@@ -52,7 +52,12 @@ global.define = function (id, deps, factory) {
             relativeId = chunks.slice(1).join("!");
         }
         
-        var fileName = Module._resolveFilename(relativeId, module);
+        try {
+            var fileName = Module._resolveFilename(relativeId, module);
+        } catch (e) {
+            console.warn(e);
+            return;
+        }
         if (Array.isArray(fileName))
             fileName = fileName[0];
         
