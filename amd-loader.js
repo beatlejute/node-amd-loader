@@ -56,7 +56,7 @@ global.define = function (id, deps, factory) {
             var fileName = Module._resolveFilename(relativeId, module);
         } catch (e) {
             //console.warn(e);
-            return;
+            return {};
         }
         if (Array.isArray(fileName))
             fileName = fileName[0];
