@@ -1,6 +1,5 @@
 var fs = require("fs");
 var Module = require("module");
-var rewire = require("rewire");
 
 var moduleStack = [];
 var defaultCompile = module.constructor.prototype._compile;
@@ -65,7 +64,7 @@ global.define = function (id, deps, factory) {
         if (prefix && prefix.indexOf("text") !== -1) {
             return fs.readFileSync(fileName, "utf8");
         } else
-            return rewire(fileName);
+            return require(fileName);
     }.bind(this, mod);
     
     id = mod.id;
